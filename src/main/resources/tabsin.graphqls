@@ -1,0 +1,8 @@
+type Tabsin {
+  id: ID
+  statics: String!
+}
+
+extend type TabSinResolver {
+    getStatics: String!
+}

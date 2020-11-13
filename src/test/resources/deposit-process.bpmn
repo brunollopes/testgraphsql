@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1xegss3" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Zeebe Modeler" exporterVersion="0.10.0">
+  <bpmn:process id="deposit-process" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="order placed">
+      <bpmn:outgoing>Flow_1dsgn9c</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_18sln2m" name="order delivered">
+      <bpmn:incoming>Flow_0iuyg5p</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1dsgn9c" sourceRef="StartEvent_1" targetRef="Activity_1jmnxy4" />
+    <bpmn:sequenceFlow id="Flow_0iuyg5p" sourceRef="Activity_1jmnxy4" targetRef="Event_18sln2m" />
+    <bpmn:sequenceFlow id="Flow_11okcjf" sourceRef="Activity_1jmnxy4" targetRef="Activity_0ydue6f" />
+    <bpmn:sequenceFlow id="Flow_1fn5zja" sourceRef="Activity_0ydue6f" targetRef="Activity_0c0cgbf" />
+    <bpmn:serviceTask id="Activity_1jmnxy4" name="GetTABSIN">
+      <bpmn:incoming>Flow_1dsgn9c</bpmn:incoming>
+      <bpmn:outgoing>Flow_0iuyg5p</bpmn:outgoing>
+      <bpmn:outgoing>Flow_11okcjf</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0ydue6f" name="Deposit">
+      <bpmn:incoming>Flow_11okcjf</bpmn:incoming>
+      <bpmn:outgoing>Flow_1fn5zja</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0c0cgbf" name="GetTUC">
+      <bpmn:incoming>Flow_1fn5zja</bpmn:incoming>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1ixmb7b">
+      <bpmndi:BPMNEdge id="Flow_1dsgn9c_di" bpmnElement="Flow_1dsgn9c">
+        <di:waypoint x="215" y="97" />
+        <di:waypoint x="240" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0iuyg5p_di" bpmnElement="Flow_0iuyg5p">
+        <di:waypoint x="340" y="97" />
+        <di:waypoint x="632" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11okcjf_di" bpmnElement="Flow_11okcjf">
+        <di:waypoint x="340" y="97" />
+        <di:waypoint x="370" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fn5zja_di" bpmnElement="Flow_1fn5zja">
+        <di:waypoint x="470" y="97" />
+        <di:waypoint x="500" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="79" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="166" y="122" width="62" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_18sln2m_di" bpmnElement="Event_18sln2m">
+        <dc:Bounds x="632" y="79" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="613" y="122" width="74" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0eo7jml_di" bpmnElement="Activity_1jmnxy4">
+        <dc:Bounds x="240" y="57" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0wqp8u5_di" bpmnElement="Activity_0ydue6f">
+        <dc:Bounds x="370" y="57" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0r1yc0s_di" bpmnElement="Activity_0c0cgbf">
+        <dc:Bounds x="500" y="57" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

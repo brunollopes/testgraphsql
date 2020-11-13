@@ -1,0 +1,27 @@
+logging:
+  level:
+    ROOT: warn
+    io.leangen: debug
+    
+okta:
+  oauth2:
+    client-secret: qTmh0rvdilIlFHKgSdyKmQ5aZmrK5BV4ttzPN5HF
+    client-id: 0oai4vyuV7I04p8Mq5d5
+    issuer: https://dev-2446197.okta.com/oauth2/default
+    
+zeebe:
+  client:
+    security:
+      plaintext: true
+  broker:
+    contact-point: "jx-zeebe:26500"
+    
+management:
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+  health:
+      zeebe:
+        enabled: false
